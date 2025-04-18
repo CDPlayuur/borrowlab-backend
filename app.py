@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 
 # Initialize the Flask app and SQLAlchemy
 app = Flask(__name__)
@@ -10,6 +11,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize the SQLAlchemy object
 db = SQLAlchemy(app)
+
+# Add CORS to allow requests from specific origin (replace with your actual frontend URL)
+CORS(app, origins=["http://borrowlabmaterials.ct.ws"])
 
 # Define the InventoryItem model
 class InventoryItem(db.Model):
