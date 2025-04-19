@@ -6,7 +6,7 @@ import json
 
 # Initialize the Flask app and SQLAlchemy
 app = Flask(__name__)
-CORS(app)  # Allow all domains (for testing)
+#CORS(app)  # Allow all domains (for testing)
 
 # Configure the PostgreSQL connection string
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:kdbiPtzehPaslyshovEgqYgfPrMABLfy@postgres.railway.internal:5432/railway'
@@ -65,6 +65,8 @@ def get_inventory():
 def submit_request():
     data = request.get_json()
 
+    print("Received data:", data)
+
     # Extract request data
     student_name = data.get("student_name")
     student_id = data.get("student_id")
@@ -76,7 +78,21 @@ def submit_request():
     date_needed = data.get("date_needed")
     time_needed_from = data.get("time_needed_from")
     time_needed_to = data.get("time_needed_to")
-    items = data.get("items")  # [{ "item_id": 1, "quantity": 2 }, ...]
+    items = data.get("items")
+
+    # Print everything for debugging
+    print("Parsed:")
+    print("student_name:", student_name)
+    print("student_id:", student_id)
+    print("course:", course)
+    print("section:", section)
+    print("prof_name:", prof_name)
+    print("program:", program)
+    print("date_filed:", date_filed)
+    print("date_needed:", date_needed)
+    print("time_needed_from:", time_needed_from)
+    print("time_needed_to:", time_needed_to)
+    print("items:", items)
 
     # Validate
     if not all([
@@ -85,6 +101,10 @@ def submit_request():
         time_needed_to, items
     ]):
         return jsonify({"success": False, "message": "Missing required fields"}), 400
+
+    # (Rest of your DB code goes here)
+    return jsonify({"success": True})
+
 
     # Insert into pending_requests
     request_entry = PendingRequest(
