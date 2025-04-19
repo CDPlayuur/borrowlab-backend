@@ -75,6 +75,7 @@ def submit_request():
 
     return jsonify({"success": True, "message": "Request submitted successfully"})
 
+
 # Add this part to run the server
 if __name__ == "__main__":
     with app.app_context():  # NEW: make sure tables are created
