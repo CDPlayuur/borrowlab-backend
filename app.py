@@ -51,12 +51,12 @@ class PendingRequest(db.Model):
 def get_inventory():
     items = InventoryItem.query.all()
     return jsonify([{
-        "id": item.id,
-        "name": item.name,
-        "image_url": item.image_url,
-        "amount_in_stock": item.amount_in_stock,
-        "consumable": item.consumable,
-        "short_description": item.short_description
+        "id": item.item_id,
+        "name": item.item_name,
+        "image_url": item.item_img,
+        "amount_in_stock": item.item_stock,
+        "consumable": item.item_is_consumable,
+        "short_description": item.item_desc
     } for item in items])
 
 @app.route("/submit-request", methods=["POST"])
