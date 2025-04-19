@@ -70,7 +70,7 @@ def submit_request():
     student_id = data.get("student_id")
     course = data.get("course")
     section = data.get("section")
-    professor_name = data.get("professor_name")
+    prof_name = data.get("prof_name")
     program = data.get("program")
     date_filed = data.get("date_filed")
     date_needed = data.get("date_needed")
@@ -80,7 +80,7 @@ def submit_request():
 
     # Validate
     if not all([
-        student_name, student_id, course, section, professor_name,
+        student_name, student_id, course, section, prof_name,
         program, date_filed, date_needed, time_needed_from,
         time_needed_to, items
     ]):
@@ -92,7 +92,7 @@ def submit_request():
         student_id=student_id,
         course=course,
         section=section,
-        professor_name=professor_name,
+        prof_name=prof_name,
         program=program,
         date_filed=date_filed,
         date_needed=date_needed,
