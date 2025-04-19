@@ -29,21 +29,22 @@ class InventoryItem(db.Model):
 
 # NEW: Define the PendingRequest model
 class PendingRequest(db.Model):
-    __tablename__ = "pending_requests"  # Specify the table name to match the new table
+    __tablename__ = 'pending_requests'
 
-    id = db.Column(db.Integer, primary_key=True)
-    student_name = db.Column(db.String(100), nullable=False)
-    student_id = db.Column(db.String(20), nullable=False)
-    professor_name = db.Column(db.String(100), nullable=False)
-    course = db.Column(db.String(100), nullable=False)
-    section = db.Column(db.String(50), nullable=False)
+    pending_request_id = db.Column(db.Integer, primary_key=True)
+    item_id = db.Column(db.Integer, db.ForeignKey('inventory_item.item_id'), nullable=False)
+    student_id = db.Column(db.Text, nullable=False)
+    student_name = db.Column(db.Text, nullable=False)
+    course = db.Column(db.Text, nullable=False)
+    section = db.Column(db.Text, nullable=False)
+    prof_name = db.Column(db.Text, nullable=False)
+    program = db.Column(db.Text, nullable=False)
     date_filed = db.Column(db.Date, nullable=False)
     date_needed = db.Column(db.Date, nullable=False)
     time_from = db.Column(db.Time, nullable=False)
     time_to = db.Column(db.Time, nullable=False)
-    items = db.Column(db.JSON, nullable=False)  # Store as JSONB in PostgreSQL
+    time_created = db.Column(db.DateTime, default=datetime.utcnow)
     status = db.Column(db.String(20), default='pending')
-    submitted_at = db.Column(db.DateTime, server_default=db.func.now())
 
 
 # Route to get inventory from the database
