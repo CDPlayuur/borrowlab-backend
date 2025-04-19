@@ -17,12 +17,12 @@ CORS(app, origins=["http://borrowlabmaterials.ct.ws"])
 
 # Define the InventoryItem model
 class InventoryItem(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), nullable=False)
-    image_url = db.Column(db.String(255), nullable=True)
-    amount_in_stock = db.Column(db.Integer, nullable=False, default=0)
-    consumable = db.Column(db.Boolean, nullable=False, default=False)
-    short_description = db.Column(db.String(255), nullable=True)
+    item_id = db.Column(db.Integer, primary_key=True)
+    item_name = db.Column(db.String(120), nullable=False)
+    item_img = db.Column(db.String(255), nullable=True)
+    item_stock = db.Column(db.Integer, nullable=False, default=0)
+    item_is_consumable = db.Column(db.Boolean, nullable=False, default=False)
+    item_desc = db.Column(db.String(255), nullable=True)
 
     def __repr__(self):
         return f'<InventoryItem {self.name}>'
