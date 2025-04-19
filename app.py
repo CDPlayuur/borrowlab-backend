@@ -29,12 +29,22 @@ class InventoryItem(db.Model):
 
 # NEW: Define the PendingRequest model
 class PendingRequest(db.Model):
+    __tablename__ = "pending_requests"  # Specify the table name to match the new table
+
     id = db.Column(db.Integer, primary_key=True)
     student_name = db.Column(db.String(100), nullable=False)
     student_id = db.Column(db.String(20), nullable=False)
-    professor = db.Column(db.String(100), nullable=False)
-    subject = db.Column(db.String(100), nullable=False)
-    items = db.Column(db.Text, nullable=False)  # JSON string of selected items
+    professor_name = db.Column(db.String(100), nullable=False)
+    course = db.Column(db.String(100), nullable=False)
+    section = db.Column(db.String(50), nullable=False)
+    date_filed = db.Column(db.Date, nullable=False)
+    date_needed = db.Column(db.Date, nullable=False)
+    time_from = db.Column(db.Time, nullable=False)
+    time_to = db.Column(db.Time, nullable=False)
+    items = db.Column(db.JSON, nullable=False)  # Store as JSONB in PostgreSQL
+    status = db.Column(db.String(20), default='pending')
+    submitted_at = db.Column(db.DateTime, server_default=db.func.now())
+
 
 # Route to get inventory from the database
 @app.route("/get-inventory")
@@ -49,31 +59,50 @@ def get_inventory():
         "short_description": item.short_description
     } for item in items])
 
-# NEW: Route to receive student request and save to database
 @app.route("/submit-request", methods=["POST"])
 def submit_request():
     data = request.get_json()
+
+    # Extract request data
     student_name = data.get("student_name")
     student_id = data.get("student_id")
-    professor = data.get("professor")
-    subject = data.get("subject")
-    items = data.get("items")  # this should be a list
+    course = data.get("course")
+    section = data.get("section")
+    professor_name = data.get("professor_name")
+    program = data.get("program")
+    date_filed = data.get("date_filed")
+    date_needed = data.get("date_needed")
+    time_needed_from = data.get("time_needed_from")
+    time_needed_to = data.get("time_needed_to")
+    items = data.get("items")  # [{ "item_id": 1, "quantity": 2 }, ...]
 
-    if not all([student_name, student_id, professor, subject, items]):
+    # Validate
+    if not all([
+        student_name, student_id, course, section, professor_name,
+        program, date_filed, date_needed, time_needed_from,
+        time_needed_to, items
+    ]):
         return jsonify({"success": False, "message": "Missing required fields"}), 400
 
-    request_record = PendingRequest(
+    # Insert into pending_requests
+    request_entry = PendingRequest(
         student_name=student_name,
         student_id=student_id,
-        professor=professor,
-        subject=subject,
-        items=json.dumps(items)  # convert list to string for storage
+        course=course,
+        section=section,
+        professor_name=professor_name,
+        program=program,
+        date_filed=date_filed,
+        date_needed=date_needed,
+        time_from=time_needed_from,
+        time_to=time_needed_to,
+        items=items  # Save as a JSON list directly
     )
-
-    db.session.add(request_record)
+    db.session.add(request_entry)
     db.session.commit()
 
     return jsonify({"success": True, "message": "Request submitted successfully"})
+
 
 
 # Add this part to run the server
