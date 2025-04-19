@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9FA82404-BB80-EA1F-B677-8E9AC0FE168A" name="Relation_4">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Requested_Items_requested_item_id" id="55F3AF4B-0DED-CB3F-8444-1FEE0DE2950C">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="05AA6087-9E27-A666-F05C-DF406D7B78CD" referredColumn="B571E6B1-E7CE-72D3-251A-A06539AF8B70"/>
+</associations>
+</Column>
+<Column name="Student_Request_request_id" id="FDC8626B-FCD4-3D2A-C271-469B37C09502">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="81F68CB8-F90F-C9A3-0FA1-764BFE6607A3" referredColumn="C1CB95C7-6C94-6DB7-9696-DE20F76A86F7"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A33B6666-F5F3-A2E4-9078-14A0E9CAD9B2" name="Relation_4_PK">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="55F3AF4B-0DED-CB3F-8444-1FEE0DE2950C"/>
+<colUsage columnID="FDC8626B-FCD4-3D2A-C271-469B37C09502"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="31E2E806-664C-5DDC-EAE7-17426B779577" name="Relation_4_Requested_Items_FK">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<generatorID>F5AC499D-C36C-A8B2-EA82-2BD154AFD356</generatorID>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="55F3AF4B-0DED-CB3F-8444-1FEE0DE2950C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B5142314-CE7C-1A76-E561-275ECEED3B6C" name="Relation_4_Student_Request_FK">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<generatorID>F5AC499D-C36C-A8B2-EA82-2BD154AFD356</generatorID>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FDC8626B-FCD4-3D2A-C271-469B37C09502"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

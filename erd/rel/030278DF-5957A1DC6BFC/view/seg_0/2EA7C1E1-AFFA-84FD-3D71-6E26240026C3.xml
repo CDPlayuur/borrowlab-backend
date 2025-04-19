@@ -1,0 +1,126 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="2EA7C1E1-AFFA-84FD-3D71-6E26240026C3" name="V_Inventory">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL><![CDATA[CREATE VIEW V_Inventory
+  ( item_id
+   , item_name
+   , item_img
+   , item_stock
+   , item_is_consumable
+   , item_desc )
+ AS SELECT
+    item_id
+   , item_name
+   , item_img
+   , item_stock
+   , item_is_consumable
+   , item_desc
+ FROM 
+    Inventory ;]]></userDefinedSQL>
+<parsed>true</parsed>
+<originalTableID>DA228FFD-D635-35FE-465B-DC720B4435E3</originalTableID>
+<usedContainers>
+<container containerID="DA228FFD-D635-35FE-465B-DC720B4435E3"/>
+</usedContainers>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="item_id" id="BFCD6B60-76B1-45B7-EA3A-26563EC9DEA1">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>UNKNOWN</dataType>
+<reference>false</reference>
+<referencedColumn>F9290AE4-7BAF-3B2C-EB7E-F1720EF9A2CA</referencedColumn>
+<table>DA228FFD-D635-35FE-465B-DC720B4435E3</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="item_name" id="89A8F2C7-832B-1712-967C-CB67228970B0">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>UNKNOWN</dataType>
+<reference>false</reference>
+<referencedColumn>206E9CBF-EBC9-01EB-4BE0-52BC7A16BAB3</referencedColumn>
+<table>DA228FFD-D635-35FE-465B-DC720B4435E3</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="item_img" id="2F59F267-04EA-4E14-C2E0-8C79DD4C24AE">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>UNKNOWN</dataType>
+<reference>false</reference>
+<referencedColumn>6972935C-EC08-C01E-383A-34FE93D5C743</referencedColumn>
+<table>DA228FFD-D635-35FE-465B-DC720B4435E3</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="item_stock" id="72208C80-DDE1-9A24-7799-54B9569B2855">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>UNKNOWN</dataType>
+<reference>false</reference>
+<referencedColumn>C5DBCA10-DA72-BA14-1824-32D313F15FF8</referencedColumn>
+<table>DA228FFD-D635-35FE-465B-DC720B4435E3</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="item_is_consumable" id="E91E0A41-D832-A3B5-2CB8-AC03754FF583">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>UNKNOWN</dataType>
+<reference>false</reference>
+<referencedColumn>ADA5ECFD-0027-0E81-315B-C21D4BF82B2F</referencedColumn>
+<table>DA228FFD-D635-35FE-465B-DC720B4435E3</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="item_desc" id="5BD8A3A3-A3E3-488C-21BF-9E4658C6802B">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>UNKNOWN</dataType>
+<reference>false</reference>
+<referencedColumn>82A7131A-F1D5-93A4-2569-7AA7E8403D04</referencedColumn>
+<table>DA228FFD-D635-35FE-465B-DC720B4435E3</table>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="DA228FFD-D635-35FE-465B-DC720B4435E3">
+<container>true</container>
+<tableName>Inventory</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F9290AE4-7BAF-3B2C-EB7E-F1720EF9A2CA">
+<columnName>item_id</columnName>
+<tableName>Inventory</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="206E9CBF-EBC9-01EB-4BE0-52BC7A16BAB3">
+<columnName>item_name</columnName>
+<tableName>Inventory</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="6972935C-EC08-C01E-383A-34FE93D5C743">
+<columnName>item_img</columnName>
+<tableName>Inventory</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="C5DBCA10-DA72-BA14-1824-32D313F15FF8">
+<columnName>item_stock</columnName>
+<tableName>Inventory</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="ADA5ECFD-0027-0E81-315B-C21D4BF82B2F">
+<columnName>item_is_consumable</columnName>
+<tableName>Inventory</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="82A7131A-F1D5-93A4-2569-7AA7E8403D04">
+<columnName>item_desc</columnName>
+<tableName>Inventory</tableName>
+</UsedObject>
+</usedObjects>
+</TableView>

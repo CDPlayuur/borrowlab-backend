@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C192254A-631B-2CF2-4117-98FAEDBB887B" name="Relation_5">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Requested_Items_requested_item_id" id="21C0FAEF-6B75-5CD1-FA18-03BC6456A077">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B3FA386D-69AE-083C-BC9B-FB7CF8DE97EF" referredColumn="B571E6B1-E7CE-72D3-251A-A06539AF8B70"/>
+</associations>
+</Column>
+<Column name="Inventory_item_id" id="7471AF1C-B6C9-E2A0-6F1F-B67C4A10BEC9">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D00E1A5E-7A38-69CE-EC39-823BB9DD85B9" referredColumn="F9290AE4-7BAF-3B2C-EB7E-F1720EF9A2CA"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3439FEA9-11E3-04FC-3D45-BB1DD90AAC2D" name="Relation_5_PK">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="21C0FAEF-6B75-5CD1-FA18-03BC6456A077"/>
+<colUsage columnID="7471AF1C-B6C9-E2A0-6F1F-B67C4A10BEC9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8F9DA3F5-A0FC-C850-4B4F-0FE987F45C3A" name="Relation_5_Requested_Items_FK">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<generatorID>A459CBE0-222C-26B1-356B-64AB884232F0</generatorID>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="21C0FAEF-6B75-5CD1-FA18-03BC6456A077"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0A469D76-5F30-C145-CE7A-E377F5DCA206" name="Relation_5_Inventory_FK">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<generatorID>A459CBE0-222C-26B1-356B-64AB884232F0</generatorID>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7471AF1C-B6C9-E2A0-6F1F-B67C4A10BEC9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

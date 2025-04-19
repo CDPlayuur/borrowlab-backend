@@ -1,0 +1,190 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="C5E90A0D-E5E7-268F-F8F1-70DFE6E52E8B" name="Student Request">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:11:46 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<shortName>std_rq</shortName>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="request_id" id="889A3F43-2724-F07B-3FC1-937C040524CE">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:12:06 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="item_id" id="AAE7DE13-9E0B-2C1B-5F6B-E6BC6A2F54F7">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:12:14 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="student_id" id="351D3827-419A-F957-7183-B005C7DA1C05">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:12:31 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="student_name" id="5599E4E1-7D67-D6A1-96B7-009BA942DD3A">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:12:35 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="course" id="B2730CA3-0197-D779-0A98-D0D3090FC9BD">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:12:43 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="section" id="721C1DBA-DDA9-093E-402E-1A8786230CB5">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:12:48 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prof_name" id="B2362004-BA45-62EC-8133-2EB70C73A8EB">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:12:56 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="program" id="D5B0645B-3D50-19D2-C010-DDBC3E13CFDF">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:13:01 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="date_filed" id="9D800C06-A47C-7913-A92B-1E7ADAA08938">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:14:40 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="date_needed" id="F7B13C1F-BB53-85D2-C5ED-E3B2EB11B0DC">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:14:50 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="time_from" id="212C5C1F-BE6C-2050-D44E-56EB904AB58F">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:14:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="time_to" id="3FC303F1-1ADD-76D8-5C61-20FE0AB5F55D">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:15:19 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="time_created" id="C46FD036-FBE5-A90E-CF5D-401126FA3A81">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:15:47 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT047</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2CA51A5A-5817-33AB-9298-C1A5EE7999BF" name="Student Request PK">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:12:12 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>889A3F43-2724-F07B-3FC1-937C040524CE</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

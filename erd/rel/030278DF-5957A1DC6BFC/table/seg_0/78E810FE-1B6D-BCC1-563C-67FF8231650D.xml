@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="78E810FE-1B6D-BCC1-563C-67FF8231650D" name="Requested_Items">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<generatorID>D56B8DFF-2D34-EDA6-7EE7-DF7DD43F49CB</generatorID>
+<ownerDesignName>erd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="requested_item_id" id="B571E6B1-E7CE-72D3-251A-A06539AF8B70">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<generatorID>7B26A14C-961C-0275-EC33-6411F3845B54</generatorID>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="request_id" id="3357C063-70DD-AC8D-77DD-6E12778D9100">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<generatorID>5F39D4A6-C8B9-1E91-3A21-E468A9A45294</generatorID>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="item_id" id="09B845D7-6E54-60C3-1B29-B3DA5E9FF2B5">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<generatorID>C2C06AEF-95E3-A5E9-A251-7638EDD7F003</generatorID>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="quantity" id="C9B794E7-5538-3762-5913-E5B53B55B762">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<generatorID>4323884A-8914-E240-601B-AEEE7E32CE0A</generatorID>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="388C03A1-806F-5024-874D-52D51F8D3CF5" name="Requested_Items_PK">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<generatorID>46C950AB-5942-F127-4F0F-00D6B2144D3C</generatorID>
+<ownerDesignName>erd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B571E6B1-E7CE-72D3-251A-A06539AF8B70"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

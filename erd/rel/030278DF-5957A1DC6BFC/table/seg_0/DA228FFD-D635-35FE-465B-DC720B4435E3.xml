@@ -1,0 +1,82 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DA228FFD-D635-35FE-465B-DC720B4435E3" name="Inventory">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<generatorID>4F5049BE-F261-1F83-761B-5B3115B0C0B4</generatorID>
+<ownerDesignName>erd</ownerDesignName>
+<abbreviation>inv</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="item_id" id="F9290AE4-7BAF-3B2C-EB7E-F1720EF9A2CA">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<generatorID>DE42FD39-8856-E30F-B348-A5E45220EAEF</generatorID>
+<ownerDesignName>erd</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="item_name" id="206E9CBF-EBC9-01EB-4BE0-52BC7A16BAB3">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<generatorID>6F8C7C68-57DE-34AB-EA10-32488B902BFC</generatorID>
+<ownerDesignName>erd</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="item_img" id="6972935C-EC08-C01E-383A-34FE93D5C743">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<generatorID>9EC53BE2-E3DF-4C63-B76D-5176E3F41AFB</generatorID>
+<ownerDesignName>erd</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="item_stock" id="C5DBCA10-DA72-BA14-1824-32D313F15FF8">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<generatorID>8CD4A8E2-E344-90A4-C890-028D0648D4A4</generatorID>
+<ownerDesignName>erd</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="item_is_consumable" id="ADA5ECFD-0027-0E81-315B-C21D4BF82B2F">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<generatorID>ECEBE4CF-1D33-A7E7-9D49-D86387FCE4F7</generatorID>
+<ownerDesignName>erd</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="item_desc" id="82A7131A-F1D5-93A4-2569-7AA7E8403D04">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<generatorID>51987D54-B708-23FC-F381-574CBE243C93</generatorID>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E56AFFFB-5A2B-C7B3-3873-47418F9212E0" name="Inventory_PK">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:28:09 UTC</createdTime>
+<generatorID>70906FD7-BE8E-8837-227B-0E5DC19BB886</generatorID>
+<ownerDesignName>erd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F9290AE4-7BAF-3B2C-EB7E-F1720EF9A2CA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

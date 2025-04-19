@@ -1,0 +1,245 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="D3DDE053-760B-4A28-EFD4-2456B3A25025" name="V_Student_Request">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL><![CDATA[CREATE VIEW V_Student_Request
+  ( request_id
+   , item_id
+   , student_id
+   , student_name
+   , course
+   , section
+   , prof_name
+   , program
+   , date_filed
+   , date_needed
+   , time_from
+   , time_to
+   , time_created )
+ AS SELECT
+    request_id
+   , item_id
+   , student_id
+   , student_name
+   , course
+   , section
+   , prof_name
+   , program
+   , date_filed
+   , date_needed
+   , time_from
+   , time_to
+   , time_created
+ FROM 
+    Student_Request ;]]></userDefinedSQL>
+<parsed>true</parsed>
+<originalTableID>43BD4F58-C710-0410-4DF9-14EE9B45CF9E</originalTableID>
+<usedContainers>
+<container containerID="43BD4F58-C710-0410-4DF9-14EE9B45CF9E"/>
+</usedContainers>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="request_id" id="0FEECDD9-75CE-18BA-51B1-F0CAFA11FFD8">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>NUMBER</dataType>
+<reference>false</reference>
+<referencedColumn>C1CB95C7-6C94-6DB7-9696-DE20F76A86F7</referencedColumn>
+<table>43BD4F58-C710-0410-4DF9-14EE9B45CF9E</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="item_id" id="1E1B049D-634E-22D9-6350-9DD641312023">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>NUMBER</dataType>
+<reference>false</reference>
+<referencedColumn>5C17647A-5042-597A-C01C-9D2CA2230E56</referencedColumn>
+<table>43BD4F58-C710-0410-4DF9-14EE9B45CF9E</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="student_id" id="8C8D0BE2-5AAF-FF5D-3FFA-C1523B41254C">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>VARCHAR2</dataType>
+<reference>false</reference>
+<referencedColumn>71FCE118-3E03-B66D-BCCF-C4079B7073B9</referencedColumn>
+<table>43BD4F58-C710-0410-4DF9-14EE9B45CF9E</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="student_name" id="B95BEDCA-4504-0D8D-2969-F1D348C0F348">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>VARCHAR2</dataType>
+<reference>false</reference>
+<referencedColumn>B951786A-F8CA-228A-60CB-C6E95EFA8FA1</referencedColumn>
+<table>43BD4F58-C710-0410-4DF9-14EE9B45CF9E</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="course" id="D1F6E7F0-C93C-C01F-38C0-CF7440C470F5">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>VARCHAR2</dataType>
+<reference>false</reference>
+<referencedColumn>BBF15183-F4ED-6CF4-0E09-06915EB2BDD1</referencedColumn>
+<table>43BD4F58-C710-0410-4DF9-14EE9B45CF9E</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="section" id="FD4E9629-F18F-CF6E-C42F-20B622A74B6F">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>VARCHAR2</dataType>
+<reference>false</reference>
+<referencedColumn>683F133A-F3C4-A775-2510-5478E68D912F</referencedColumn>
+<table>43BD4F58-C710-0410-4DF9-14EE9B45CF9E</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="prof_name" id="8B6100BB-4A54-D62A-512A-B4C60C99F2D1">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>VARCHAR2</dataType>
+<reference>false</reference>
+<referencedColumn>CB23B40E-14E8-47A2-9198-8C5BE9684E0A</referencedColumn>
+<table>43BD4F58-C710-0410-4DF9-14EE9B45CF9E</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="program" id="39F8CD2C-4A99-FB64-B988-AA4A4A87A4C0">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>VARCHAR2</dataType>
+<reference>false</reference>
+<referencedColumn>0D55B3CA-90D7-5924-E1B4-4E15D44D2965</referencedColumn>
+<table>43BD4F58-C710-0410-4DF9-14EE9B45CF9E</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="date_filed" id="59AE1148-16AA-4B91-BD9F-182974DC2D7B">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>DATE</dataType>
+<reference>false</reference>
+<referencedColumn>A94E2DEF-4B7B-BBC5-5330-0F62E2BB71EA</referencedColumn>
+<table>43BD4F58-C710-0410-4DF9-14EE9B45CF9E</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="date_needed" id="E176AB45-E754-056C-C4E1-6F125AC7D90C">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>DATE</dataType>
+<reference>false</reference>
+<referencedColumn>8F30C6E3-9FDA-9724-1100-75ABD7026E0E</referencedColumn>
+<table>43BD4F58-C710-0410-4DF9-14EE9B45CF9E</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="time_from" id="93A0E624-B1FA-30B6-BF3E-DE83135BE092">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>DATE</dataType>
+<reference>false</reference>
+<referencedColumn>71BB03D1-06B6-0AD2-ABB0-FF09A2F1442D</referencedColumn>
+<table>43BD4F58-C710-0410-4DF9-14EE9B45CF9E</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="time_to" id="6A1AF999-3440-C6C9-014F-3D9D27CDB5F5">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>DATE</dataType>
+<reference>false</reference>
+<referencedColumn>985D9CD4-9094-336D-F0F9-E7744E07DF8C</referencedColumn>
+<table>43BD4F58-C710-0410-4DF9-14EE9B45CF9E</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="time_created" id="A7F4A279-B571-6FCE-4A30-128C42CC1CB1">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>TIMESTAMP WITH LOCAL TIME ZONE</dataType>
+<reference>false</reference>
+<referencedColumn>0C7AB258-C58B-A941-056B-90DC917CD302</referencedColumn>
+<table>43BD4F58-C710-0410-4DF9-14EE9B45CF9E</table>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="43BD4F58-C710-0410-4DF9-14EE9B45CF9E">
+<container>true</container>
+<tableName>Student_Request</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="C1CB95C7-6C94-6DB7-9696-DE20F76A86F7">
+<columnName>request_id</columnName>
+<tableName>Student_Request</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="5C17647A-5042-597A-C01C-9D2CA2230E56">
+<columnName>item_id</columnName>
+<tableName>Student_Request</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="71FCE118-3E03-B66D-BCCF-C4079B7073B9">
+<columnName>student_id</columnName>
+<tableName>Student_Request</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="B951786A-F8CA-228A-60CB-C6E95EFA8FA1">
+<columnName>student_name</columnName>
+<tableName>Student_Request</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="BBF15183-F4ED-6CF4-0E09-06915EB2BDD1">
+<columnName>course</columnName>
+<tableName>Student_Request</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="683F133A-F3C4-A775-2510-5478E68D912F">
+<columnName>section</columnName>
+<tableName>Student_Request</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="CB23B40E-14E8-47A2-9198-8C5BE9684E0A">
+<columnName>prof_name</columnName>
+<tableName>Student_Request</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="0D55B3CA-90D7-5924-E1B4-4E15D44D2965">
+<columnName>program</columnName>
+<tableName>Student_Request</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="A94E2DEF-4B7B-BBC5-5330-0F62E2BB71EA">
+<columnName>date_filed</columnName>
+<tableName>Student_Request</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="8F30C6E3-9FDA-9724-1100-75ABD7026E0E">
+<columnName>date_needed</columnName>
+<tableName>Student_Request</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="71BB03D1-06B6-0AD2-ABB0-FF09A2F1442D">
+<columnName>time_from</columnName>
+<tableName>Student_Request</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="985D9CD4-9094-336D-F0F9-E7744E07DF8C">
+<columnName>time_to</columnName>
+<tableName>Student_Request</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="0C7AB258-C58B-A941-056B-90DC917CD302">
+<columnName>time_created</columnName>
+<tableName>Student_Request</tableName>
+</UsedObject>
+</usedObjects>
+</TableView>

@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="E5CB2C55-8A7F-B5A0-48F4-46A7989AB5FB" name="V_Relation_4">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL><![CDATA[CREATE VIEW V_Relation_4
+  ( Requested_Items_requested_item_id
+   , Student_Request_request_id )
+ AS SELECT
+    Requested_Items_requested_item_id
+   , Student_Request_request_id
+ FROM 
+    Relation_4 ;]]></userDefinedSQL>
+<parsed>true</parsed>
+<originalTableID>9FA82404-BB80-EA1F-B677-8E9AC0FE168A</originalTableID>
+<usedContainers>
+<container containerID="9FA82404-BB80-EA1F-B677-8E9AC0FE168A"/>
+</usedContainers>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="Requested_Items_requested_item_id" id="B3B71C7F-76BD-6B1F-73DB-B508061F0E0F">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>NUMBER</dataType>
+<reference>false</reference>
+<referencedColumn>55F3AF4B-0DED-CB3F-8444-1FEE0DE2950C</referencedColumn>
+<table>9FA82404-BB80-EA1F-B677-8E9AC0FE168A</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="Student_Request_request_id" id="E80F1BEE-86D6-7523-1C84-318DEB3BACA0">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>NUMBER</dataType>
+<reference>false</reference>
+<referencedColumn>FDC8626B-FCD4-3D2A-C271-469B37C09502</referencedColumn>
+<table>9FA82404-BB80-EA1F-B677-8E9AC0FE168A</table>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="9FA82404-BB80-EA1F-B677-8E9AC0FE168A">
+<container>true</container>
+<tableName>Relation_4</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="55F3AF4B-0DED-CB3F-8444-1FEE0DE2950C">
+<columnName>Requested_Items_requested_item_id</columnName>
+<tableName>Relation_4</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="FDC8626B-FCD4-3D2A-C271-469B37C09502">
+<columnName>Student_Request_request_id</columnName>
+<tableName>Relation_4</tableName>
+</UsedObject>
+</usedObjects>
+</TableView>

@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="B8CFCDD3-CB79-80F8-6950-C3E84A039590" name="V_Requested_Items">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL><![CDATA[CREATE VIEW V_Requested_Items
+  ( requested_item_id
+   , request_id
+   , item_id
+   , quantity )
+ AS SELECT
+    requested_item_id
+   , request_id
+   , item_id
+   , quantity
+ FROM 
+    Requested_Items ;]]></userDefinedSQL>
+<parsed>true</parsed>
+<originalTableID>78E810FE-1B6D-BCC1-563C-67FF8231650D</originalTableID>
+<usedContainers>
+<container containerID="78E810FE-1B6D-BCC1-563C-67FF8231650D"/>
+</usedContainers>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="requested_item_id" id="9D60D74C-4997-76B7-824B-95636EC45E5C">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>NUMBER</dataType>
+<reference>false</reference>
+<referencedColumn>B571E6B1-E7CE-72D3-251A-A06539AF8B70</referencedColumn>
+<table>78E810FE-1B6D-BCC1-563C-67FF8231650D</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="request_id" id="3F24F7B9-B341-D6D7-E694-629DF9A9E262">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>NUMBER</dataType>
+<reference>false</reference>
+<referencedColumn>3357C063-70DD-AC8D-77DD-6E12778D9100</referencedColumn>
+<table>78E810FE-1B6D-BCC1-563C-67FF8231650D</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="item_id" id="6778D71F-6398-3545-B797-95FAF51C3E0C">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>NUMBER</dataType>
+<reference>false</reference>
+<referencedColumn>09B845D7-6E54-60C3-1B29-B3DA5E9FF2B5</referencedColumn>
+<table>78E810FE-1B6D-BCC1-563C-67FF8231650D</table>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="quantity" id="9F5C6967-36F9-71F6-3521-3C5B03B5A7E6">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:34:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<dataType>NUMBER</dataType>
+<reference>false</reference>
+<referencedColumn>C9B794E7-5538-3762-5913-E5B53B55B762</referencedColumn>
+<table>78E810FE-1B6D-BCC1-563C-67FF8231650D</table>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="78E810FE-1B6D-BCC1-563C-67FF8231650D">
+<container>true</container>
+<tableName>Requested_Items</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="B571E6B1-E7CE-72D3-251A-A06539AF8B70">
+<columnName>requested_item_id</columnName>
+<tableName>Requested_Items</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="3357C063-70DD-AC8D-77DD-6E12778D9100">
+<columnName>request_id</columnName>
+<tableName>Requested_Items</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="09B845D7-6E54-60C3-1B29-B3DA5E9FF2B5">
+<columnName>item_id</columnName>
+<tableName>Requested_Items</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="C9B794E7-5538-3762-5913-E5B53B55B762">
+<columnName>quantity</columnName>
+<tableName>Requested_Items</tableName>
+</UsedObject>
+</usedObjects>
+</TableView>

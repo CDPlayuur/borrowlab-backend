@@ -1,0 +1,95 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4F5049BE-F261-1F83-761B-5B3115B0C0B4" name="Inventory">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:10:11 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<shortName>inv</shortName>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="item_id" id="DE42FD39-8856-E30F-B348-A5E45220EAEF">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:10:40 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="item_name" id="6F8C7C68-57DE-34AB-EA10-32488B902BFC">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:11:00 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="item_img" id="9EC53BE2-E3DF-4C63-B76D-5176E3F41AFB">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:11:08 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="item_stock" id="8CD4A8E2-E344-90A4-C890-028D0648D4A4">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:11:15 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="item_is_consumable" id="ECEBE4CF-1D33-A7E7-9D49-D86387FCE4F7">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:11:21 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="item_desc" id="51987D54-B708-23FC-F381-574CBE243C93">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:11:31 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="70906FD7-BE8E-8837-227B-0E5DC19BB886" name="Inventory PK">
+<createdBy>mchar</createdBy>
+<createdTime>2025-04-19 17:10:57 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<engineerTo>
+<item key="030278DF-912C-E238-CD0E-5957A1DC6BFC" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>DE42FD39-8856-E30F-B348-A5E45220EAEF</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
