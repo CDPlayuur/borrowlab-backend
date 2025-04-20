@@ -122,6 +122,68 @@ def submit_request():
 
     return jsonify({"success": True, "message": "Request submitted successfully"})
 
+@app.route('/api/sections', methods=['GET'])
+def get_sections():
+    # ✅ CHANGED: Only get requests where status is pending
+    sections = db.session.query(PendingRequest.section).filter_by(status='pending').distinct().all()
+    result = []
+    
+    for section in sections:
+        # ✅ CHANGED: Filter only pending requests in that section
+        requests = db.session.query(PendingRequest).filter_by(section=section[0], status='pending').all()
+        requests_data = [{
+            'student_name': req.student_name,
+            'student_id': req.student_id,
+            'prof_name': req.prof_name,
+            'course': req.course,
+            'section': req.section,
+            'time_requested': req.time_from.strftime('%H:%M'),  # make it JSON friendly
+            'items': req.items,
+            'request_id': req.pending_request_id  # pass ID for later approve/deny
+        } for req in requests]
+        result.append({'section': section[0], 'requests': requests_data})
+    
+    return jsonify(result)
+
+
+# ✅ CHANGED: Updated to only change status instead of moving to a new table
+@app.route('/api/approve-request', methods=['POST'])
+def approve_request():
+    data = request.json
+    request_id = data['request_id']
+    approved_items = data['approved_items']
+
+    # ✅ CHANGED: Use correct column name (pending_request_id)
+    request_data = db.session.query(PendingRequest).filter_by(pending_request_id=request_id).first()
+    if not request_data:
+        return jsonify({'error': 'Request not found'}), 404
+
+    # ✅ CHANGED: Deduct stock for each approved item
+    for item in approved_items:
+        inventory_item = db.session.query(InventoryItem).filter_by(item_id=item['item_id']).first()
+        if inventory_item:
+            inventory_item.item_stock = max(0, inventory_item.item_stock - item['quantity'])  # avoid negative
+    request_data.status = 'approved'  # ✅ CHANGED: Update status field
+    db.session.commit()
+
+    return jsonify({'status': 'approved'})
+
+# ✅ CHANGED: Updated to only change status instead of moving to a new table
+@app.route('/api/deny-request', methods=['POST'])
+def deny_request():
+    data = request.json
+    request_id = data['request_id']
+
+    # ✅ CHANGED: Use correct column name (pending_request_id)
+    request_data = db.session.query(PendingRequest).filter_by(pending_request_id=request_id).first()
+    if not request_data:
+        return jsonify({'error': 'Request not found'}), 404
+
+    request_data.status = 'denied'  # ✅ CHANGED: Update status field
+    db.session.commit()
+
+    return jsonify({'status': 'denied'})
+
 
 
 
