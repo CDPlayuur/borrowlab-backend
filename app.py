@@ -34,7 +34,6 @@ class PendingRequest(db.Model):
     __tablename__ = 'pending_requests'
 
     pending_request_id = db.Column(db.Integer, primary_key=True)
-    item_id = db.Column(db.Integer, db.ForeignKey('inventory_item.item_id'), nullable=False)
     student_id = db.Column(db.Text, nullable=False)
     student_name = db.Column(db.Text, nullable=False)
     course = db.Column(db.Text, nullable=False)
