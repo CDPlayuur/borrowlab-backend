@@ -72,15 +72,15 @@ def submit_request():
     student_id = data.get("student_id")
     course = data.get("course")
     section = data.get("section")
-    prof_name = data.get("prof_name")  # Use "prof_name" instead of "prof_name"
+    prof_name = data.get("prof_name")  # fixed key
     program = data.get("program")
     date_filed = data.get("date_filed")
     date_needed = data.get("date_needed")
-    time_needed_from = data.get("time_from") or '00:00'  # Set a default value if not provided
-    time_needed_to = data.get("time_to") or '23:59'  # Set a default value if not provided
+    time_needed_from = data.get("time_from") or '00:00'
+    time_needed_to = data.get("time_to") or '23:59'
     items = data.get("items")
 
-    # Print everything for debugging
+    # Print for debugging
     print("Parsed:")
     print("student_name:", student_name)
     print("student_id:", student_id)
@@ -102,10 +102,6 @@ def submit_request():
     ]):
         return jsonify({"success": False, "message": "Missing required fields"}), 400
 
-    # (Rest of your DB code goes here)
-    return jsonify({"success": True})
-
-
     # Insert into pending_requests
     request_entry = PendingRequest(
         student_name=student_name,
@@ -118,12 +114,13 @@ def submit_request():
         date_needed=date_needed,
         time_from=time_needed_from,
         time_to=time_needed_to,
-        items=items  # Save as a JSON list directly
+        items=items  # assuming this is handled as JSONB in the model
     )
     db.session.add(request_entry)
     db.session.commit()
 
     return jsonify({"success": True, "message": "Request submitted successfully"})
+
 
 
 
