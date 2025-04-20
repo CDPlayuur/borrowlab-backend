@@ -3,6 +3,7 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 import json
+from sqlalchemy.dialects.postgresql import JSONB
 
 # Initialize the Flask app and SQLAlchemy
 app = Flask(__name__)
@@ -46,6 +47,7 @@ class PendingRequest(db.Model):
     time_to = db.Column(db.Time, nullable=False)
     time_created = db.Column(db.DateTime, default=datetime.utcnow)
     status = db.Column(db.String(20), default='pending')
+    items = db.Column(JSONB)
 
 
 # Route to get inventory from the database
