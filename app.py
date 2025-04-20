@@ -72,12 +72,12 @@ def submit_request():
     student_id = data.get("student_id")
     course = data.get("course")
     section = data.get("section")
-    prof_name = data.get("prof_name")
+    prof_name = data.get("prof_name")  # Use "prof_name" instead of "prof_name"
     program = data.get("program")
     date_filed = data.get("date_filed")
     date_needed = data.get("date_needed")
-    time_needed_from = data.get("time_needed_from")
-    time_needed_to = data.get("time_needed_to")
+    time_needed_from = data.get("time_from") or '00:00'  # Set a default value if not provided
+    time_needed_to = data.get("time_to") or '23:59'  # Set a default value if not provided
     items = data.get("items")
 
     # Print everything for debugging
