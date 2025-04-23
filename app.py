@@ -145,9 +145,8 @@ def get_sections():
     
     return jsonify(result)
 
-# In the '/get-sections' route, replace StudentRequest with PendingRequest
-@app.route('/get-sections', methods=['GET'])
-def get_sections():
+@app.route('/api/section-names', methods=['GET'])
+def get_section_names():
     sections = db.session.query(PendingRequest.section).distinct().all()
     return jsonify([section[0] for section in sections])
 
