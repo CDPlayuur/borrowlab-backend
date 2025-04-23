@@ -184,6 +184,34 @@ def deny_request():
 
     return jsonify({'status': 'denied'})
 
+@app.route('/get-requests', methods=['GET'])
+def get_all_requests():
+    status_filter = request.args.get('status')  # optional: ?status=pending
+    try:
+        query = PendingRequest.query
+        if status_filter:
+            query = query.filter_by(status=status_filter)
+
+        requests = query.order_by(PendingRequest.time_created.desc()).all()
+        result = [{
+            "request_id": r.pending_request_id,
+            "student_name": r.student_name,
+            "student_id": r.student_id,
+            "prof_name": r.prof_name,
+            "program": r.program,
+            "course": r.course,
+            "section": r.section,
+            "date_filed": r.date_filed.strftime("%Y-%m-%d"),
+            "date_needed": r.date_needed.strftime("%Y-%m-%d"),
+            "time_from": r.time_from.strftime("%H:%M"),
+            "time_to": r.time_to.strftime("%H:%M"),
+            "status": r.status,
+            "items": r.items
+        } for r in requests]
+
+        return jsonify(result)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 
