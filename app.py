@@ -186,13 +186,22 @@ def deny_request():
 
 @app.route('/get-requests', methods=['GET'])
 def get_all_requests():
+    section_filter = request.args.get('section')  # optional: ?section=Electronics
     status_filter = request.args.get('status')  # optional: ?status=pending
+
     try:
         query = PendingRequest.query
+
+        # Apply section filter if provided
+        if section_filter:
+            query = query.filter_by(section=section_filter)
+
+        # Apply status filter if provided
         if status_filter:
             query = query.filter_by(status=status_filter)
 
         requests = query.order_by(PendingRequest.time_created.desc()).all()
+
         result = [{
             "request_id": r.pending_request_id,
             "student_name": r.student_name,
@@ -212,6 +221,7 @@ def get_all_requests():
         return jsonify(result)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
 
 
 
