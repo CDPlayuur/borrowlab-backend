@@ -145,6 +145,12 @@ def get_sections():
     
     return jsonify(result)
 
+# In the '/get-sections' route, replace StudentRequest with PendingRequest
+@app.route('/get-sections', methods=['GET'])
+def get_sections():
+    sections = db.session.query(PendingRequest.section).distinct().all()
+    return jsonify([section[0] for section in sections])
+
 
 # ✅ CHANGED: Updated to only change status instead of moving to a new table
 @app.route('/api/approve-request', methods=['POST'])
