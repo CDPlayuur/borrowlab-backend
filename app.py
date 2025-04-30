@@ -263,7 +263,34 @@ def update_stock():
         print(f"Error: {str(e)}")
         return jsonify({"status": "error", "message": str(e)}), 500
 
+@app.route('/finish-request', methods=['POST'])
+def finish_request():
+    data = request.json
+    request_id = data.get('request_id')
 
+    if not request_id:
+        return jsonify({'error': 'Request ID is required'}), 400
+
+    request_data = PendingRequest.query.filter_by(pending_request_id=request_id, status='approved').first()
+    if not request_data:
+        return jsonify({'error': 'Approved request not found'}), 404
+
+    try:
+        for item in request_data.items:
+            item_id = item.get('item_id')
+            quantity = item.get('quantity')
+
+            if item_id and quantity is not None:
+                inventory_item = InventoryItem.query.get(item_id)
+                if inventory_item:
+                    inventory_item.item_stock += quantity  # Add the returned items back to stock
+
+        request_data.status = 'finished'
+        db.session.commit()
+        return jsonify({'status': 'finished', 'message': f'Request {request_id} marked as finished and stock updated.'}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500
 
 
 # Add this part to run the server
