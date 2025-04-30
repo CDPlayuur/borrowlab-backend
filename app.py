@@ -236,22 +236,31 @@ def update_stock():
     data = request.get_json()
     updates = data.get('updates', [])
 
+    if not isinstance(updates, list):
+        return jsonify({"status": "error", "message": "Invalid updates format"}), 400
+
     try:
+        updated_count = 0
+
         for update in updates:
             item_id = update.get('item_id')
             new_stock = update.get('new_stock')
 
-            if item_id is not None and new_stock is not None:
-                item = InventoryItem.query.get(item_id)
-                if item:
-                    item.item_stock = new_stock
+            if item_id is None or new_stock is None:
+                continue  # skip incomplete data
+
+            item = InventoryItem.query.get(item_id)
+            if item:
+                item.item_stock = new_stock
+                updated_count += 1
 
         db.session.commit()
-        return jsonify({"status": "success", "updated": len(updates)}), 200
+        return jsonify({"status": "success", "updated": updated_count}), 200
 
     except Exception as e:
         db.session.rollback()
         return jsonify({"status": "error", "message": str(e)}), 500
+
 
 
 
