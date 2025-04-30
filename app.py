@@ -227,26 +227,31 @@ def get_all_requests():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-@app.route('/api/update-stock', methods=['POST'])
+@app.route('/update-stock', methods=['POST', 'OPTIONS'])
 def update_stock():
+    if request.method == 'OPTIONS':
+        # CORS preflight request
+        return '', 204
+
     data = request.get_json()
-    item_id = data.get("item_id")
-    new_stock = data.get("new_stock")
-
-    if item_id is None or new_stock is None:
-        return jsonify({"success": False, "message": "Missing item_id or new_stock"}), 400
-
-    item = InventoryItem.query.filter_by(item_id=item_id).first()
-    if not item:
-        return jsonify({"success": False, "message": "Item not found"}), 404
+    updates = data.get('updates', [])
 
     try:
-        item.item_stock = int(new_stock)
+        for update in updates:
+            item_id = update.get('item_id')
+            new_stock = update.get('new_stock')
+
+            if item_id is not None and new_stock is not None:
+                item = InventoryItem.query.get(item_id)
+                if item:
+                    item.item_stock = new_stock
+
         db.session.commit()
-        return jsonify({"success": True, "message": "Stock updated successfully"})
+        return jsonify({"status": "success", "updated": len(updates)}), 200
+
     except Exception as e:
         db.session.rollback()
-        return jsonify({"success": False, "message": str(e)}), 500
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 
 
