@@ -227,6 +227,26 @@ def get_all_requests():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route('/api/update-stock', methods=['POST'])
+def update_stock():
+    data = request.get_json()
+    item_id = data.get("item_id")
+    new_stock = data.get("new_stock")
+
+    if item_id is None or new_stock is None:
+        return jsonify({"success": False, "message": "Missing item_id or new_stock"}), 400
+
+    item = InventoryItem.query.filter_by(item_id=item_id).first()
+    if not item:
+        return jsonify({"success": False, "message": "Item not found"}), 404
+
+    try:
+        item.item_stock = int(new_stock)
+        db.session.commit()
+        return jsonify({"success": True, "message": "Stock updated successfully"})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"success": False, "message": str(e)}), 500
 
 
 
