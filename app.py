@@ -230,7 +230,6 @@ def get_all_requests():
 @app.route('/update-stock', methods=['POST', 'OPTIONS'])
 def update_stock():
     if request.method == 'OPTIONS':
-        # CORS preflight request
         return '', 204
 
     data = request.get_json()
@@ -239,9 +238,9 @@ def update_stock():
     if not isinstance(updates, list):
         return jsonify({"status": "error", "message": "Invalid updates format"}), 400
 
-    try:
-        updated_count = 0
+    updated_count = 0
 
+    try:
         for update in updates:
             item_id = update.get('item_id')
             new_stock = update.get('new_stock')
@@ -251,14 +250,17 @@ def update_stock():
 
             item = InventoryItem.query.get(item_id)
             if item:
+                print(f"Found item {item.item_name} with stock {item.item_stock}, updating to {new_stock}")
                 item.item_stock = new_stock
                 updated_count += 1
 
         db.session.commit()
+        print(f"{updated_count} items updated")
         return jsonify({"status": "success", "updated": updated_count}), 200
 
     except Exception as e:
         db.session.rollback()
+        print(f"Error: {str(e)}")
         return jsonify({"status": "error", "message": str(e)}), 500
 
 
