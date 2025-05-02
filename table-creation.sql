@@ -1,47 +1,63 @@
+-- Inventory Table
 CREATE TABLE inventory_item (
-  id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL,
-  image_url TEXT,
-  amount_in_stock INT DEFAULT 0
-  consumable BOOLEAN DEFAULT false,
-  short_description TEXT
+  item_id SERIAL PRIMARY KEY,
+  item_name TEXT NOT NULL,
+  item_img TEXT NOT NULL,
+  item_stock INT DEFAULT 0,
+  item_is_consumable BOOLEAN DEFAULT false,
+  item_desc TEXT
 );
 
--- Table to store student requests
-CREATE TABLE student_requests (
-    id SERIAL PRIMARY KEY,
-    student_name TEXT NOT NULL,
-    student_id TEXT NOT NULL,
-    professor_name TEXT NOT NULL,
-    course TEXT NOT NULL,
-    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Table to store requested items per request
-CREATE TABLE requested_items (
-    id SERIAL PRIMARY KEY,
-    request_id INTEGER NOT NULL REFERENCES student_requests(id) ON DELETE CASCADE,
-    item_id INTEGER NOT NULL REFERENCES inventory_item(id),
-    quantity INTEGER NOT NULL CHECK (quantity > 0)
-);
-
+-- Student Requests Table (master request info)
 CREATE TABLE student_request (
-  id SERIAL PRIMARY KEY,
+  request_id SERIAL PRIMARY KEY,
+  item_id INTEGER REFERENCES inventory_item(item_id),
   student_id TEXT NOT NULL,
   student_name TEXT NOT NULL,
   course TEXT NOT NULL,
   section TEXT NOT NULL,
+  prof_name TEXT NOT NULL,
   program TEXT NOT NULL CHECK (program IN ('Electronics', 'Science', 'Nursing', 'HTM', 'Criminology')),
   date_filed DATE NOT NULL,
   date_needed DATE NOT NULL,
-  time_needed_from TIME NOT NULL,
-  time_needed_to TIME NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  time_from TIME NOT NULL,
+  time_to TIME NOT NULL,
+  time_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-drop table request_form
+-- drop table student_request
+-- drop table requested_items
 
-INSERT INTO inventory_item (name, image_url, amount_in_stock, consumable, short_description)
+-- Requested Items Table (items linked to a request)
+CREATE TABLE requested_items (
+  requested_item_id SERIAL PRIMARY KEY,
+  request_id INTEGER NOT NULL REFERENCES student_request(request_id) ON DELETE CASCADE,
+  item_id INTEGER NOT NULL REFERENCES inventory_item(item_id),
+  quantity INTEGER NOT NULL CHECK (quantity > 0)
+);
+
+-- Table to store pending requests (before confirmation)
+CREATE TABLE pending_requests (
+    pending_request_id SERIAL PRIMARY KEY,
+    student_name VARCHAR(100),
+    student_id VARCHAR(20),
+    prof_name VARCHAR(100),
+    program VARCHAR(100),
+    course VARCHAR(100),
+    section VARCHAR(50),
+    date_filed DATE,
+    date_needed DATE,
+    time_from TIME,
+    time_to TIME,
+    items JSONB,
+    status VARCHAR(20) DEFAULT 'pending',
+    submitted_at TIMESTAMP DEFAULT NOW(),
+    time_created TIMESTAMP DEFAULT NOW()
+);
+
+
+-- Sample Data Insert (pictures are placeholders)
+INSERT INTO inventory_item (item_name, item_img, item_stock, item_is_consumable, item_desc)
 VALUES 
   ('Soldering Iron', 'https://picsum.photos/id/237/200/300', 15, false, 'A tool used for soldering electronic components.'),
   ('Multimeter', 'https://picsum.photos/id/1011/200/300', 10, false, 'Used for measuring voltage, current, and resistance.'),
@@ -52,8 +68,34 @@ VALUES
   ('Arduino Uno', 'https://picsum.photos/id/1031/200/300', 20, false, 'An open-source microcontroller board for building electronics projects.'),
   ('Raspberry Pi', 'https://picsum.photos/id/1033/200/300', 15, false, 'A small, affordable computer for learning programming and building projects.'),
   ('USB Cable', 'https://picsum.photos/id/1037/200/300', 40, true, 'Standard USB cable for connecting devices to computers or power supplies.'),
+  ('USB Cables', 'https://picsum.photos/id/1037/200/300', 40, true, 'Standard USB cable for connecting devices to computers or power supplies.'),
   ('Power Supply', 'https://picsum.photos/id/1041/200/300', 30, false, 'A power source for electronic projects, typically providing regulated voltage.');
+  
 
 
-SELECT * FROM inventory_item;
-DROP TABLE inventory_item
+----------------------------------------------- TEST QUERIES -----------------------------------------------
+
+-- SELECT * FROM inventory_item;
+-- DROP TABLE inventory_item CASCADE;
+
+-- select * from pending_requests
+-- SELECT jsonb_pretty(items) FROM pending_requests;
+
+-- SELECT items->0->>'name' AS first_item_name FROM pending_requests;
+
+-- SELECT
+--     jsonb_array_elements(items)->>'name' AS item_name
+-- FROM
+--     pending_requests;
+
+-- -- display item list borrowed per student
+-- SELECT
+--     student_name,
+--     jsonb_array_elements(items)->>'name' AS item_name
+-- FROM
+--     pending_requests;
+    
+    
+-- SELECT * FROM pending_requests WHERE status = 'pending';
+-- SELECT * FROM pending_requests WHERE status = 'approved';
+-- SELECT * FROM pending_requests WHERE status = 'denied';
