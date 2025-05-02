@@ -5,7 +5,6 @@ from flask_cors import CORS
 import json
 from sqlalchemy.dialects.postgresql import JSONB
 
-# Initialize the Flask app and SQLAlchemy
 app = Flask(__name__)
 #CORS(app)  # Allow all domains (for testing)
 
@@ -13,11 +12,9 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:kdbiPtzehPaslyshovEgqYgfPrMABLfy@postgres.railway.internal:5432/railway'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Initialize the SQLAlchemy object
 db = SQLAlchemy(app)
 CORS(app, origins=["http://borrowlabmaterials.ct.ws"])
 
-# Define the InventoryItem model
 class InventoryItem(db.Model):
     item_id = db.Column(db.Integer, primary_key=True)
     item_name = db.Column(db.String(120), nullable=False)
@@ -29,7 +26,6 @@ class InventoryItem(db.Model):
     def __repr__(self):
         return f'<InventoryItem {self.name}>'
 
-# NEW: Define the PendingRequest model
 class PendingRequest(db.Model):
     __tablename__ = 'pending_requests'
 
@@ -73,7 +69,7 @@ def submit_request():
     student_id = data.get("student_id")
     course = data.get("course")
     section = data.get("section")
-    prof_name = data.get("prof_name")  # fixed key
+    prof_name = data.get("prof_name")
     program = data.get("program")
     date_filed = data.get("date_filed")
     date_needed = data.get("date_needed")
@@ -115,7 +111,7 @@ def submit_request():
         date_needed=date_needed,
         time_from=time_needed_from,
         time_to=time_needed_to,
-        items=items  # assuming this is handled as JSONB in the model
+        items=items
     )
     db.session.add(request_entry)
     db.session.commit()
@@ -124,12 +120,12 @@ def submit_request():
 
 @app.route('/api/sections', methods=['GET'])
 def get_sections():
-    # ✅ CHANGED: Only get requests where status is pending
+    # Only get requests where status is pending
     sections = db.session.query(PendingRequest.section).filter_by(status='pending').distinct().all()
     result = []
     
     for section in sections:
-        # ✅ CHANGED: Filter only pending requests in that section
+        # Filter only pending requests in that section
         requests = db.session.query(PendingRequest).filter_by(section=section[0], status='pending').all()
         requests_data = [{
             'student_name': req.student_name,
@@ -151,57 +147,53 @@ def get_section_names():
     return jsonify([section[0] for section in sections])
 
 
-# ✅ CHANGED: Updated to only change status instead of moving to a new table
+# Only change status instead of moving to a new table
 @app.route('/api/approve-request', methods=['POST'])
 def approve_request():
     data = request.json
     request_id = data['request_id']
     approved_items = data['approved_items']
 
-    # ✅ CHANGED: Use correct column name (pending_request_id)
     request_data = db.session.query(PendingRequest).filter_by(pending_request_id=request_id).first()
     if not request_data:
         return jsonify({'error': 'Request not found'}), 404
 
-    # ✅ CHANGED: Deduct stock for each approved item
+    # Deduct stock for each approved item
     for item in approved_items:
         inventory_item = db.session.query(InventoryItem).filter_by(item_id=item['item_id']).first()
         if inventory_item:
             inventory_item.item_stock = max(0, inventory_item.item_stock - item['quantity'])  # avoid negative
-    request_data.status = 'approved'  # ✅ CHANGED: Update status field
+    request_data.status = 'approved'
     db.session.commit()
 
     return jsonify({'status': 'approved'})
 
-# ✅ CHANGED: Updated to only change status instead of moving to a new table
+# Only change status instead of moving to a new table
 @app.route('/api/deny-request', methods=['POST'])
 def deny_request():
     data = request.json
     request_id = data['request_id']
 
-    # ✅ CHANGED: Use correct column name (pending_request_id)
     request_data = db.session.query(PendingRequest).filter_by(pending_request_id=request_id).first()
     if not request_data:
         return jsonify({'error': 'Request not found'}), 404
 
-    request_data.status = 'denied'  # ✅ CHANGED: Update status field
+    request_data.status = 'denied'
     db.session.commit()
 
     return jsonify({'status': 'denied'})
 
 @app.route('/get-requests', methods=['GET'])
 def get_all_requests():
-    section_filter = request.args.get('section')  # optional: ?section=Electronics
-    status_filter = request.args.get('status')  # optional: ?status=pending
+    section_filter = request.args.get('section')
+    status_filter = request.args.get('status')
 
     try:
         query = PendingRequest.query
 
-        # Apply section filter if provided
         if section_filter:
             query = query.filter_by(section=section_filter)
 
-        # Apply status filter if provided
         if status_filter:
             query = query.filter_by(status=status_filter)
 
@@ -293,9 +285,8 @@ def finish_request():
         return jsonify({'error': str(e)}), 500
 
 
-# Add this part to run the server
 if __name__ == "__main__":
-    with app.app_context():  # NEW: make sure tables are created
+    with app.app_context():
         db.create_all()
 
     app.run(host="0.0.0.0", port=8000)
