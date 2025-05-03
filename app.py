@@ -6,7 +6,7 @@ import json
 from sqlalchemy.dialects.postgresql import JSONB
 
 app = Flask(__name__)
-CORS(app, methods=['GET', 'POST', 'OPTIONS'])  # Allow all domains (for testing)
+CORS(app)  # Allow all domains (for testing)
 
 # Configure the PostgreSQL connection string
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:kdbiPtzehPaslyshovEgqYgfPrMABLfy@postgres.railway.internal:5432/railway'
