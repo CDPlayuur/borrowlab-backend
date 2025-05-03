@@ -257,7 +257,14 @@ def update_stock():
 
 @app.route('/finish-request', methods=['POST', 'OPTIONS'])
 def finish_request():
-    data = request.json
+    if request.method == 'OPTIONS':
+        response = jsonify()
+        response.headers.add('Access-Control-Allow-Origin', 'http://borrowlabmaterials.ct.ws')
+        response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+        return response, 200
+
+    data = request.get_json()
     request_id = data.get('request_id')
 
     if not request_id:
