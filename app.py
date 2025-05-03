@@ -256,6 +256,7 @@ def update_stock():
         return jsonify({"status": "error", "message": str(e)}), 500
 
 @app.route('/finish-request', methods=['POST', 'OPTIONS'])
+@CORS(origins=["http://borrowlabmaterials.ct.ws"], methods=['POST', 'OPTIONS'], headers=['Content-Type'])
 def finish_request():
     if request.method == 'OPTIONS':
         response = jsonify()
