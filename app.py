@@ -6,14 +6,14 @@ import json
 from sqlalchemy.dialects.postgresql import JSONB
 
 app = Flask(__name__)
-#CORS(app)  # Allow all domains (for testing)
+CORS(app, methods=['GET', 'POST', 'OPTIONS'])  # Allow all domains (for testing)
 
 # Configure the PostgreSQL connection string
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:kdbiPtzehPaslyshovEgqYgfPrMABLfy@postgres.railway.internal:5432/railway'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-CORS(app, origins=["http://borrowlabmaterials.ct.ws"])
+# CORS(app, origins=["http://borrowlabmaterials.ct.ws"], methods=['GET', 'POST', 'OPTIONS'])
 
 class InventoryItem(db.Model):
     item_id = db.Column(db.Integer, primary_key=True)
@@ -255,7 +255,7 @@ def update_stock():
         print(f"Error: {str(e)}")
         return jsonify({"status": "error", "message": str(e)}), 500
 
-@app.route('/finish-request', methods=['POST'])
+@app.route('/finish-request', methods=['POST', 'OPTIONS'])
 def finish_request():
     data = request.json
     request_id = data.get('request_id')
