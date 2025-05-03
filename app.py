@@ -150,9 +150,9 @@ def get_section_names():
 # Only change status instead of moving to a new table
 @app.route('/api/approve-request', methods=['POST'])
 def approve_request():
-    data = request.get_json()
-    request_id = data.get('request_id')
-    approved_items = data.get['approved_items']
+    data = request.json
+    request_id = data['request_id']
+    approved_items = data['approved_items']
 
     request_data = db.session.query(PendingRequest).filter_by(pending_request_id=request_id).first()
     if not request_data:
