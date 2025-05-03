@@ -123,7 +123,7 @@ def get_sections():
     # Only get requests where status is pending
     sections = db.session.query(PendingRequest.section).filter_by(status='pending').distinct().all()
     result = []
-    
+
     for section in sections:
         # Filter only pending requests in that section
         requests = db.session.query(PendingRequest).filter_by(section=section[0], status='pending').all()
@@ -138,7 +138,7 @@ def get_sections():
             'request_id': req.pending_request_id  # pass ID for later approve/deny
         } for req in requests]
         result.append({'section': section[0], 'requests': requests_data})
-    
+
     return jsonify(result)
 
 @app.route('/api/section-names', methods=['GET'])
@@ -264,7 +264,9 @@ def finish_request():
         response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
         return response, 200
     elif request.method == 'POST':
+        print("Raw JSON data received:", request.get_data(as_text=True)) # ADDED LOGGING
         data = request.get_json()
+        print("Parsed JSON data:", data) # KEPT LOGGING
         request_id = data.get('request_id')
 
         if not request_id:
