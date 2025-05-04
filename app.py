@@ -116,7 +116,7 @@ def submit_request():
     db.session.add(request_entry)
     db.session.commit()
 
-    return jsonify({"success": True, "message": "Request submitted successfully"})
+    return jsonify({"success": True, "message": "Request submitted successfully", "pending_request_id": request_entry.pending_request_id})
 
 @app.route('/api/sections', methods=['GET'])
 def get_sections():
@@ -264,9 +264,9 @@ def finish_request():
         response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
         return response, 200
     elif request.method == 'POST':
-        print("Raw JSON data received:", request.get_data(as_text=True)) # ADDED LOGGING
+        print("Raw JSON data received:", request.get_data(as_text=True))
         data = request.get_json()
-        print("Parsed JSON data:", data) # KEPT LOGGING
+        print("Parsed JSON data:", data)
         request_id = data.get('request_id')
 
         if not request_id:
@@ -295,6 +295,31 @@ def finish_request():
     else:
         return jsonify({'error': 'Method not allowed'}), 405
 
+@app.route('/api/track-request', methods=['GET'])
+def track_request():
+    request_id = request.args.get('id')
+    if not request_id:
+        return jsonify({'error': 'Request ID is required'}), 400
+
+    request_data = PendingRequest.query.filter_by(pending_request_id=request_id).first()
+    if not request_data:
+        return jsonify({'error': 'Request not found'}), 404
+
+    result = {
+        "pending_request_id": request_data.pending_request_id,
+        "student_name": request_data.student_name,
+        "student_id": request_data.student_id,
+        "prof_name": request_data.prof_name,
+        "course": request_data.course,
+        "section": request_data.section,
+        "date_filed": request_data.date_filed.strftime("%Y-%m-%d"),
+        "date_needed": request_data.date_needed.strftime("%Y-%m-%d"),
+        "time_from": request_data.time_from.strftime("%H:%M"),
+        "time_to": request_data.time_to.strftime("%H:%M"),
+        "status": request_data.status,
+        "items": request_data.items
+    }
+    return jsonify(result)
 
 if __name__ == "__main__":
     with app.app_context():
