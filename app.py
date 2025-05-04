@@ -324,7 +324,8 @@ def track_request():
         "time_from": request_data.time_from.strftime("%H:%M"),
         "time_to": request_data.time_to.strftime("%H:%M"),
         "status": request_data.status,
-        "items": request_data.items
+        "items": request_data.items,
+        "program": request_data.program
     }
     return jsonify(result)
 
