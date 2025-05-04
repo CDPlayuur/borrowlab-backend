@@ -6,14 +6,14 @@ import json
 from sqlalchemy.dialects.postgresql import JSONB
 
 app = Flask(__name__)
-CORS(app)  # Allow all domains (for testing)
+# CORS(app)  # Allow all domains (for testing)
 
 # Configure the PostgreSQL connection string
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:kdbiPtzehPaslyshovEgqYgfPrMABLfy@postgres.railway.internal:5432/railway'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-# CORS(app, origins=["http://borrowlabmaterials.ct.ws"], methods=['GET', 'POST', 'OPTIONS'])
+CORS(app, origins=["http://borrowlabmaterials.ct.ws"])
 
 class InventoryItem(db.Model):
     item_id = db.Column(db.Integer, primary_key=True)
