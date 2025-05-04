@@ -297,13 +297,20 @@ def finish_request():
 
 @app.route('/api/track-request', methods=['GET'])
 def track_request():
-    request_id = request.args.get('id')
-    if not request_id:
-        return jsonify({'error': 'Request ID is required'}), 400
+    student_id = request.args.get('student_id')
+    request_id_str = request.args.get('id')
 
-    request_data = PendingRequest.query.filter_by(pending_request_id=request_id).first()
+    if not student_id or not request_id_str:
+        return jsonify({'error': 'Both Student ID and Request ID are required'}), 400
+
+    try:
+        request_id = int(request_id_str)
+    except ValueError:
+        return jsonify({'error': 'Invalid Request ID format'}), 400
+
+    request_data = PendingRequest.query.filter_by(pending_request_id=request_id, student_id=student_id).first()
     if not request_data:
-        return jsonify({'error': 'Request not found'}), 404
+        return jsonify({'error': 'Request not found for the given Student ID and Request ID'}), 404
 
     result = {
         "pending_request_id": request_data.pending_request_id,
